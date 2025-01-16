@@ -1,0 +1,236 @@
+/* General Styles */
+.App {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Theme (Pure Black) */
+.App.dark {
+  background: #000000; /* Pure black background */
+  color: #ffffff; /* White text */
+}
+
+.App.dark .card {
+  background: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.App.dark textarea {
+  background: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff; /* White text */
+}
+
+.App.dark textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Light gray placeholder */
+}
+
+.App.dark .counter {
+  color: rgba(255, 255, 255, 0.7); /* Light gray text */
+}
+
+.App.dark .history li {
+  background: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+  color: #ffffff; /* White text for dark theme */
+}
+
+.App.dark .history h2 {
+  color: #ffffff; /* White text for dark theme */
+}
+
+.App.dark .history strong {
+  color: #ffffff; /* White text for dark theme */
+}
+
+/* Light Theme (Cool Blue Gradient) */
+.App.light {
+  background: linear-gradient(135deg, #00c6fb, #005bea); /* Cool blue gradient */
+  color: #ffffff; /* White text */
+}
+
+.App.light .card {
+  background: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.App.light textarea {
+  background: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #333333; /* Dark text */
+}
+
+.App.light textarea::placeholder {
+  color: rgba(0, 0, 0, 0.7); /* Dark gray placeholder */
+}
+
+.App.light .counter {
+  color: rgba(0, 0, 0, 0.7); /* Dark gray text */
+}
+
+.App.light .history li {
+  background: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+  color: #333333; /* Dark text for light theme */
+}
+
+.App.light .history h2 {
+  color: #333333; /* Dark text for light theme */
+}
+
+.App.light .history strong {
+  color: #333333; /* Dark text for light theme */
+}
+
+/* Container */
+.container {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Card */
+.card {
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Textarea */
+textarea {
+  width: 90%;
+  height: 100px;
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  resize: none;
+}
+
+/* Counter */
+.counter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.predict-button {
+  background: #6200ea;
+  color: #ffffff;
+}
+
+.reset-button {
+  background: #ff4757;
+  color: #ffffff;
+}
+
+.copy-button {
+  background: #4caf50;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.theme-toggle {
+  background: #333333;
+  color: #ffffff;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Show More Button */
+.show-more-button {
+  background: #333333;
+  color: #ffffff;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.show-more-button:hover {
+  opacity: 0.9;
+}
+
+/* Prediction */
+.prediction {
+  margin-top: 20px;
+  font-size: 18px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Error */
+.error {
+  color: #ff4757;
+  margin-top: 10px;
+}
+
+/* History */
+.history {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.history li {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  textarea {
+    width: 100%;
+  }
+}

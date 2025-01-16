@@ -1,4 +1,3 @@
-import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
@@ -6,9 +5,6 @@ import torch
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
-
-# Set the secret key from the environment variable
-app.secret_key = os.getenv('SECRET_KEY', 'fallback_secret_key')
 
 # Load pre-trained GPT-2 model and tokenizer
 model_name = "gpt2"  # You can use "gpt2-medium", "gpt2-large", etc.
@@ -48,4 +44,4 @@ def predict():
     return jsonify({'next_word': next_word})
 
 if __name__ == '__main__':
-    app.run(debug=os.getenv('FLASK_ENV') == 'development')
+    app.run(debug=True)

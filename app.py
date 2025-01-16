@@ -36,6 +36,10 @@ def predict():
         attention_mask=attention_mask,   # Set attention mask
         pad_token_id=tokenizer.eos_token_id  # Set pad token id to end-of-sequence token
     )
+@app.route('/health', methods=['GET'])
+def health():
+    return "OK", 200
+
 
     # Decode the predicted word
     next_word = tokenizer.decode(outputs[0, -1], skip_special_tokens=True)

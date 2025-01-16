@@ -1,7 +1,3 @@
-Ah, I see! You're working on an **N-gram Text Predictor** project that uses **React Native** for the frontend and **Flask** (in `app.py`) for the backend. Thanks for clarifying! Below is an updated `README.md` file tailored to your tech stack:
-
----
-
 # N-gram Text Predictor
 
 Welcome to the **N-gram Text Predictor** project! This project is a full-stack application that predicts the next word in a sequence of text using N-gram models. It consists of a **React Native** frontend for mobile devices and a **Flask** backend for handling the N-gram model and predictions.

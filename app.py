@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
@@ -44,4 +45,6 @@ def predict():
     return jsonify({'next_word': next_word})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Define the port (use 10000 for Render)
+    port = int(os.getenv('PORT', 10000))
+    app.run(host='0.0.0.0', port=port)

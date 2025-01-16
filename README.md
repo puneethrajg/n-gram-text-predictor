@@ -79,8 +79,8 @@ The Flask backend provides a REST API for text prediction. The API endpoint is:
   - Request Body:
     ```json
     {
-      "text": "Your input text here",
-      "n": 3  // Optional: Specify the N-gram order (default is 3)
+      "input_text": "Your input text here"
+      
     }
     ```
   - Response:

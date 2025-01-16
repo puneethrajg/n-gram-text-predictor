@@ -1,4 +1,3 @@
-import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
@@ -36,10 +35,6 @@ def predict():
         attention_mask=attention_mask,   # Set attention mask
         pad_token_id=tokenizer.eos_token_id  # Set pad token id to end-of-sequence token
     )
-@app.route('/health', methods=['GET'])
-def health():
-    return "OK", 200
-
 
     # Decode the predicted word
     next_word = tokenizer.decode(outputs[0, -1], skip_special_tokens=True)
@@ -49,6 +44,4 @@ def health():
     return jsonify({'next_word': next_word})
 
 if __name__ == '__main__':
-    # Define the port (use 10000 for Render)
-    port = int(os.getenv('PORT', 10000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)

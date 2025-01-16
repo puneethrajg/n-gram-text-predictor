@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# N-gram Text Predictor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the **N-gram Text Predictor** project! This project is designed to predict the next word in a sequence of text using N-gram models. It is a simple yet powerful tool for understanding and implementing natural language processing (NLP) techniques, specifically focusing on probabilistic language models.
 
-## Available Scripts
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [How It Works](#how-it-works)
+- [Contributing](#contributing)
+- [License](#license)
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+The N-gram Text Predictor is a probabilistic model that uses N-grams (sequences of N words) to predict the next word in a sentence. It is based on the idea that the probability of a word depends on the previous N-1 words. This project demonstrates how to build, train, and use an N-gram model for text prediction.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **N-gram Model**: Supports unigram, bigram, trigram, and higher-order N-gram models.
+- **Text Prediction**: Predicts the next word based on the input sequence.
+- **Customizable**: Allows you to specify the value of N for the N-gram model.
+- **Training on Custom Data**: Train the model on any text corpus of your choice.
+- **Smoothing Techniques**: Includes basic smoothing techniques to handle unseen N-grams.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To use this project, follow these steps:
 
-### `npm run build`
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/n-gram-text-predictor.git
+   cd n-gram-text-predictor
+Install dependencies:
+Ensure you have Python 3.x installed. Then, install the required packages:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+bash
+Copy
+pip install -r requirements.txt
+Run the project:
+Follow the instructions in the Usage section to train and use the model.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Usage
+Training the Model
+To train the N-gram model on a text corpus, use the following command:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+bash
+Copy
+python train.py --corpus_path path/to/your/corpus.txt --n 3
+--corpus_path: Path to the text file containing the training data.
 
-### `npm run eject`
+--n: The value of N for the N-gram model (e.g., 2 for bigram, 3 for trigram).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Making Predictions
+To predict the next word in a sequence, use the following command:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+bash
+Copy
+python predict.py --input "Your input text here"
+--input: The input text sequence for which you want to predict the next word.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Example
+bash
+Copy
+python predict.py --input "I love"
+Output:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Copy
+Predicted next word: programming
+How It Works
+N-gram Extraction: The text corpus is split into N-grams of the specified length.
 
-## Learn More
+Probability Calculation: The probability of each N-gram is calculated based on its frequency in the corpus.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Prediction: Given an input sequence, the model predicts the next word by selecting the most probable N-gram that matches the input.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Smoothing
+To handle cases where an N-gram is not present in the training data, basic smoothing techniques (e.g., Laplace smoothing) are applied.
 
-### Code Splitting
+Contributing
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Fork the repository.
 
-### Analyzing the Bundle Size
+Create a new branch for your feature or bugfix.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Commit your changes.
 
-### Making a Progressive Web App
+Submit a pull request with a detailed description of your changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to explore, experiment, and contribute to the N-gram Text Predictor project. If you have any questions or suggestions, please open an issue or reach out to the maintainers. Happy coding

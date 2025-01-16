@@ -1,10 +1,15 @@
+Ah, I see! You're working on an **N-gram Text Predictor** project that uses **React Native** for the frontend and **Flask** (in `app.py`) for the backend. Thanks for clarifying! Below is an updated `README.md` file tailored to your tech stack:
+
+---
+
 # N-gram Text Predictor
 
-Welcome to the **N-gram Text Predictor** project! This project is designed to predict the next word in a sequence of text using N-gram models. It is a simple yet powerful tool for understanding and implementing natural language processing (NLP) techniques, specifically focusing on probabilistic language models.
+Welcome to the **N-gram Text Predictor** project! This project is a full-stack application that predicts the next word in a sequence of text using N-gram models. It consists of a **React Native** frontend for mobile devices and a **Flask** backend for handling the N-gram model and predictions.
 
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
+- [Tech Stack](#tech-stack)
 - [Installation](#installation)
 - [Usage](#usage)
 - [How It Works](#how-it-works)
@@ -13,82 +18,108 @@ Welcome to the **N-gram Text Predictor** project! This project is designed to pr
 
 ## Introduction
 
-The N-gram Text Predictor is a probabilistic model that uses N-grams (sequences of N words) to predict the next word in a sentence. It is based on the idea that the probability of a word depends on the previous N-1 words. This project demonstrates how to build, train, and use an N-gram model for text prediction.
+The N-gram Text Predictor is a probabilistic model that uses N-grams (sequences of N words) to predict the next word in a sentence. This project demonstrates how to build a full-stack application with a **React Native** frontend and a **Flask** backend to provide a seamless text prediction experience.
 
 ## Features
 
 - **N-gram Model**: Supports unigram, bigram, trigram, and higher-order N-gram models.
 - **Text Prediction**: Predicts the next word based on the input sequence.
+- **Mobile-Friendly**: Built with React Native for cross-platform mobile compatibility.
+- **REST API**: Flask backend exposes a REST API for text prediction.
 - **Customizable**: Allows you to specify the value of N for the N-gram model.
 - **Training on Custom Data**: Train the model on any text corpus of your choice.
-- **Smoothing Techniques**: Includes basic smoothing techniques to handle unseen N-grams.
+
+## Tech Stack
+
+- **Frontend**: React Native (JavaScript/TypeScript)
+- **Backend**: Flask (Python)
+- **N-gram Model**: Built using Python's `nltk` or custom implementation
+- **API Communication**: REST API with JSON payloads
 
 ## Installation
 
-To use this project, follow these steps:
+To set up the project locally, follow these steps:
 
-1. **Clone the repository**:
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/n-gram-text-predictor.git
+cd n-gram-text-predictor
+```
+
+### 2. Set Up the Backend
+1. Navigate to the backend directory:
    ```bash
-   git clone https://github.com/your-username/n-gram-text-predictor.git
-   cd n-gram-text-predictor
-Install dependencies:
-Ensure you have Python 3.x installed. Then, install the required packages:
+   cd backend
+   ```
+2. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the Flask server:
+   ```bash
+   python app.py
+   ```
+   The backend will start at `http://127.0.0.1:5000`.
 
-bash
-Copy
-pip install -r requirements.txt
-Run the project:
-Follow the instructions in the Usage section to train and use the model.
+### 3. Set Up the Frontend
+1. Navigate to the frontend directory:
+   ```bash
+   cd ../frontend
+   ```
+2. Install Node.js dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the React Native development server:
+   ```bash
+   npm start
+   ```
+   
+## Usage
 
-Usage
-Training the Model
-To train the N-gram model on a text corpus, use the following command:
+### Backend (Flask)
+The Flask backend provides a REST API for text prediction. The API endpoint is:
+- **POST `/predict`**: Predicts the next word based on the input text.
+  - Request Body:
+    ```json
+    {
+      "text": "Your input text here",
+      "n": 3  // Optional: Specify the N-gram order (default is 3)
+    }
+    ```
+  - Response:
+    ```json
+    {
+      "prediction": "predicted_word"
+    }
+    ```
 
-bash
-Copy
-python train.py --corpus_path path/to/your/corpus.txt --n 3
---corpus_path: Path to the text file containing the training data.
+### Frontend (React Native)
+The React Native app allows users to input text and receive predictions in real time. Simply type a sentence, and the app will display the predicted next word.
 
---n: The value of N for the N-gram model (e.g., 2 for bigram, 3 for trigram).
+### Example
+1. Open the React Native app.
+2. Type a sentence, e.g., "I love".
+3. The app will display the predicted next word, e.g., "programming".
 
-Making Predictions
-To predict the next word in a sequence, use the following command:
+## How It Works
 
-bash
-Copy
-python predict.py --input "Your input text here"
---input: The input text sequence for which you want to predict the next word.
+1. **N-gram Extraction**: The text corpus is split into N-grams of the specified length.
+2. **Probability Calculation**: The probability of each N-gram is calculated based on its frequency in the corpus.
+3. **Prediction**: Given an input sequence, the model predicts the next word by selecting the most probable N-gram that matches the input.
+4. **API Communication**: The React Native frontend sends the input text to the Flask backend, which processes the request and returns the prediction.
 
-Example
-bash
-Copy
-python predict.py --input "I love"
-Output:
-
-Copy
-Predicted next word: programming
-How It Works
-N-gram Extraction: The text corpus is split into N-grams of the specified length.
-
-Probability Calculation: The probability of each N-gram is calculated based on its frequency in the corpus.
-
-Prediction: Given an input sequence, the model predicts the next word by selecting the most probable N-gram that matches the input.
-
-Smoothing
+### Smoothing
 To handle cases where an N-gram is not present in the training data, basic smoothing techniques (e.g., Laplace smoothing) are applied.
 
-Contributing
+## Contributing
+
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Commit your changes.
+4. Submit a pull request with a detailed description of your changes.
 
-Fork the repository.
+## License
 
-Create a new branch for your feature or bugfix.
-
-Commit your changes.
-
-Submit a pull request with a detailed description of your changes.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-Feel free to explore, experiment, and contribute to the N-gram Text Predictor project. If you have any questions or suggestions, please open an issue or reach out to the maintainers. Happy coding
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

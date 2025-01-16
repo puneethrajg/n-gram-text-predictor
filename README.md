@@ -95,8 +95,8 @@ The React Native app allows users to input text and receive predictions in real 
 
 ### Example
 1. Open the React Native app.
-2. Type a sentence, e.g., "I love".
-3. The app will display the predicted next word, e.g., "programming".
+2. Type a sentence, e.g., "Sun rises in the".
+3. The app will display the predicted next word, e.g., "morning".
 
 ## How It Works
 
